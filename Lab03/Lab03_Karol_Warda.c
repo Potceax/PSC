@@ -10,17 +10,43 @@ typedef enum { my_false = 0, my_true = !my_false } bool;
 int GetIntNumber()
 {
 	int num;
-	while (true) {
+	while (my_true) {
 		printf("Please enter a number: ");
-		if (!scanf_s("%d", &num) && getchar() != '\n')
+		if (!scanf_s("%d", &num) && getchar() != '\n') {
+			while (getchar() != '\n');
 			continue;
+		}
 		else
 			return num;
-
 	}
 }
 
-void PrintIntNumber(){ printf("The number is equal to: %d\n", GetIntNumber()); }
+
+void* GetInput(char* text, char* format)
+{
+	void* value;
+
+	while (my_true) {
+		bool isCorrect = my_true;
+
+		printf("%s", text);
+		if (!scanf_s(format, &value) && getchar() != '\n') {
+			isCorrect = !isCorrect;
+		}
+
+		while (getchar() != '\n');
+		
+		if(isCorrect)
+			return value;
+	}
+}
+
+void PrintOutput(char* text, char* format){
+	void* value = GetInput(text, format);
+	printf("The value of input is equal to : ");
+	printf(format, value);
+	putchar('\n');
+}
 
 int main()
 {
@@ -34,7 +60,7 @@ int main()
 	//printf("Autor: Karol Warda\n");
 	//printf("This program prints an integer number you are going to type.\n\n");
 
-	//// PrintNumber() to test if variable is int type
+	PrintOutput("Please write an integer: ", "%d"); //to test if variable is int type
 	//// But this VVVV is the answer
 
 	//int num;
@@ -130,7 +156,7 @@ int main()
 
 	*/
 
-	printf("End of the exercise 18.\n\n");
+	printf("End of the exercise 19.\n\n");
 
 
 
