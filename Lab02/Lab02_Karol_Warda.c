@@ -2,8 +2,10 @@
 #include <math.h>
 #include <string.h>
 
-// Wiêkszoœæ zrobionych zadañ pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsza forma
-// Jeœli nie jest to forma jak¹ powinienem stosowac to prosze o odpowiedz
+
+// Wiekszosc zrobionych zadan pisalem po angielsku, poniewaÂ¿ jest to dla mnie wygodniejsze
+// Jesli nie jest to forma jaka powinienem stosowac to prosze o odpowiedz
+
 
 int main()
 {
@@ -116,7 +118,6 @@ int main()
 	printf("2.0 / 3 = %lg\n\n", 2.0 / 3);
 
 	// 4.
-	// I had to use cast to make printf print proper values with integer formating
 	printf("Integer and floating point values (with format %%d)\n");
 	printf("2 + 3.0 = %d\n", /*(int)*/(2 + 3.0));			// All of them print wrong answers
 	printf("2 - 3.0 = %d\n", /*(int)*/(2 - 3.0));			// That's because format for floating point values should be %f or %g
@@ -129,6 +130,7 @@ int main()
 	// Zad 14
 	printf("Exercise 14\n\n");
 	printf("Cale rozwiazanie jest w komentarzu\n\n");
+
 	// Ok - Compiles, Nope - Error
 
 	/*printf("%s\n", "ala");		// Ok - "ala" is a string which is fine for %s format
