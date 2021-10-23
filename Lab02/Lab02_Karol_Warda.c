@@ -43,7 +43,7 @@ int main()
 
 
 	// Zad 10
-	printf("Exercise 10:\n");
+	printf("Exercise 10:\n\n");
 
 	// I put each of the character in one line until I needed to use special character
 
