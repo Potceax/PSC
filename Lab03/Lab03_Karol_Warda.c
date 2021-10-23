@@ -11,42 +11,19 @@ int GetIntNumber()
 {
 	int num;
 	while (my_true) {
+		bool isCorrect = my_true;
+
 		printf("Please enter a number: ");
-		if (!scanf_s("%d", &num) && getchar() != '\n') {
-			while (getchar() != '\n');
-			continue;
+		if (!scanf_s("%d", &num) /*&& getchar() != '\n'*/) {
+			isCorrect = !isCorrect;
 		}
-		else
+		while (getchar() != '\n');		// to clear out the buffer
+
+		if(isCorrect)
 			return num;
 	}
 }
 
-
-void* GetInput(char* text, char* format)
-{
-	void* value;
-
-	while (my_true) {
-		bool isCorrect = my_true;
-
-		printf("%s", text);
-		if (!scanf_s(format, &value) && getchar() != '\n') {
-			isCorrect = !isCorrect;
-		}
-
-		while (getchar() != '\n');
-		
-		if(isCorrect)
-			return value;
-	}
-}
-
-void PrintOutput(char* text, char* format){
-	void* value = GetInput(text, format);
-	printf("The value of input is equal to : ");
-	printf(format, value);
-	putchar('\n');
-}
 
 int main()
 {
@@ -54,75 +31,76 @@ int main()
 	printf("Zadania 17-24\n\n");
 	printf("Autor: Karol Warda\n\n");
 
+	length();
+
 	// Zad 17
 
-	//printf("Exercise 17\n\n");
-	//printf("Autor: Karol Warda\n");
-	//printf("This program prints an integer number you are going to type.\n\n");
+	printf("Exercise 17\n\n");
+	printf("Autor: Karol Warda\n");
+	printf("This program prints an integer number you are going to type.\n\n");
 
-	PrintOutput("Please write an integer: ", "%d"); //to test if variable is int type
-	//// But this VVVV is the answer
+	/*printf("The value of input is equal to: %d\n", GetIntNumber());*/ //to test if variable is int type
 
-	//int num;
-	//printf("Please enter an integer number: ");
-	//scanf_s("%d", &num);
-	//printf("The number value is equal to: %d\n", num);
+	int num;
+	printf("Please enter an integer number: ");
+	scanf_s("%d", &num);
+	printf("The number value is equal to: %d\n", num);
 
-	//while (getchar() != '\n');	// To clear out the buffer
+	while (getchar() != '\n');	// To clear out the buffer
 
-	///*
-	//	if scanf_s is set to get only int type variables it will only work properly for that type
+	/*
+		if scanf_s is set to get only int type variables it will only work properly for that type
 
-	//	So lets say that variable which will get result from scan_f is: int number then:
+		So lets say that variable which will get result from scan_f is: int number then:
 
-	//	1. User types int variable - It will work properly
-	//	2. User types other type variable (char[], char) - It will print out of range number
-	//	(lets say -423562) which isn't what we wanted
-	//	3. User types mix of int and other type - same like in 2. it will give out of range number
-	//	4. User types floating point type variable - it will print this value rounded to floor
-	//	5. User types int number but it's too large - it will print specific number for int type (for windows its -1395630315)
+		1. User types int variable - It will work properly
+		2. User types other type variable (char[], char) - It will print out of range number
+		(lets say -423562) which isn't what we wanted
+		3. User types mix of int and other type - same like in 2. it will give out of range number
+		4. User types floating point type variable - it will print this value rounded to floor
+		5. User types int number but it's too large - it will print specific number for int type (for windows its -1395630315)
 
-	//*/
+	*/
 
-	//printf("End of the exercise 17\n\n");
+	printf("End of the exercise 17\n\n");
 
 
 	// Zad 18
 
-	//printf("Exercise 18\n\n");
-	//printf("Autor: Karol Warda\n");
-	//printf("This program prints float number you are going to type.\n\n");
+	printf("Exercise 18\n\n");
+	printf("Autor: Karol Warda\n");
+	printf("This program prints float number you are going to type.\n\n");
 
-	//float f_num = {0.f};
-	//printf("Please write a floating point number: ");
-	//scanf_s("%f", &f_num);
-	//printf("The number is equal to %f\n", f_num);
+	float f_num = {0.f};
+	printf("Please write a floating point number: ");
+	scanf_s("%f", &f_num);
+	printf("The number is equal to %f\n", f_num);
 
-	//while (getchar() != '\n');	// To clear out the buffer
+	while (getchar() != '\n');	// To clear out the buffer
 
 
-	///*
-	//	if scanf_s is set to get only float type variables it will only work properly for that type
+	/*
+		if scanf_s is set to get only float type variables it will only work properly for that type
 
-	//	So lets say that variable which will get result from scanf_s is: float number then:
+		So lets say that variable which will get result from scanf_s is: float number then:
 
-	//	1. User types float type number - there are two scenarios:
-	//		I. Program will print number properly
-	//		II. Program will mess up the precision printing proper number but with wrong floating point
-	//	All of this comes down to the set precision
+		1. User types float type number - there are two scenarios:
+			I. Program will print number properly
+			II. Program will mess up the precision printing proper number but with wrong floating point
+		All of this comes down to the set precision
 
-	//	2. User types int type number - then program will print this number in floating point format
+		2. User types int type number - then program will print this number in floating point format
 
-	//	3. User types other variable type - then program will print number which was set to the variable before scanf_s
-	//		and it will also be stored in the buffer which can lead to the unwanted behavior 
-	//		(next scanf_s() or getchar() will print stuff stored in the buffer)
-	//	
-	//	4. User types float type number but its too large - Same as in the exercise above it will give the number which
-	//		isn't what we wanted
-	//
-	//*/
+		3. User types other variable type - then program will print number which was set to the variable before scanf_s
+			and it will also be stored in the buffer which can lead to the unwanted behavior 
+			(next scanf_s() or getchar() will print stuff stored in the buffer)
+		
+		4. User types float type number but its too large - Same as in the exercise above it will give the number which
+			isn't what we wanted
+	
+	*/
 
-	//printf("End of the exercise 18.\n\n");
+	printf("End of the exercise 18.\n\n");
 
 	
 	// Zad 19

@@ -13,7 +13,7 @@ int main()
 
 	// Zad 8
 
-	printf("Exercise 8\n");
+	printf("Exercise 8\n\n");
 
 	printf("Columns:\n\n");
 	printf("%10d%10d%10d\t%s\n", -11, 0, 11111, "Without flags");
@@ -27,8 +27,7 @@ int main()
 
 
 	// Zad 9
-
-	printf("Exercise 9\n");
+	printf("Exercise 9\n\n");
 	
 	printf("Columns:\n\n");
 	printf("%10d%10d%10d\t%s\n", -11, 0, 11111, "Without flags");
@@ -42,22 +41,23 @@ int main()
 
 
 	// Zad 10
+	printf("Exercise 10:\n");
+
 	// I put each of the character in one line until I needed to use special character
 
 	// If all of this was put into one printf it would look like this:
 	//printf("%s%s%s%s", "x:\t", "f(x):\n", "3\t", "5\n");
 
-	printf("Exercise 10:\n");
-
 	putchar('x'); putchar(':'); putchar('\t'); 
 	putchar('f'); putchar('('); putchar('x'); putchar(')'); putchar(':'); putchar('\n');
 	putchar('3'); putchar('\t');
 	putchar('5'); putchar('\n');
+
 	printf("End of the Exercise 10.\n\n");
 	
 
 
-	//// Zad 11
+	// Zad 11
 	printf("Exercise 11\n\n");
 
 	printf("%d\t\t%s\n", -5, "%%d");			// Everything is fine here
@@ -73,7 +73,7 @@ int main()
 	printf("End of the Exercise 11.\n\n");
 
 
-	//// Zad 12
+	// Zad 12
 	printf("Exercise 12\n\n");
 
 	//printf("%d\t\t%s\n", -5.0, "%%d");		// %d accept only int values
@@ -91,7 +91,7 @@ int main()
 	printf("End of the Exercise 12.\n\n");
 
 
-	//// Zad 13
+	// Zad 13
 	printf("Exercise 13\n\n");
 
 	// 1.
@@ -153,23 +153,23 @@ int main()
 		\v, \f - changed sequence into random symbol (???)
 		\b - cuts character before this sequence
 		\r - flipped part after sequence with part before it
+		\a - makes a beep sound? (can't really tell)
 		\\, \?, \",\' - places \, ?, ", ' in the place of the sequence 		
 	*/
-	printf("End of the Exercise 15.\n\n");
+	printf("\nEnd of the Exercise 15.\n\n");
 
 
 	// Zad 16
 	printf("Exercise 16\n\n");
+
+	printf("%s%s", "Uzywanie sekwencji specjalnych.", "\n\n");
+
 	printf("%s%c", "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", '\n');
 	printf("%s%c", "Czy \"a\" oznacza w C to samo co \'a\'\?", '\n');
-	printf("%s%c", "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", '\n');
+	printf("%s%s", "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", "\n\n");
+	putchar('\a');		// To play the sound			
 
-	// No - "a" is an element of char array (string) 
-	// which besides given elements also hold null terminator '\0'
-	// although it isn't shown in the code it is there and indicate end of the char array
-	// char arr[] = {"a"}; - arr has a length of 2 (first element 'a', second element '\0')
-	// char c = 'a'; - c holds only one letter 'a'
-	// From that obserwation it is clear that "a" is not equal to 'a' (*)
+	printf("%s%s", "Koniec.", "\n\n");	
 	
 	printf("End of the Exercise 16.\n\n");
 
