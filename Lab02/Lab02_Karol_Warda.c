@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string.h>
 
-// Wiêkszoœæ zrobionych zadañ pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsze
+// Wiêkszoœæ zrobionych zadañ pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsza forma
 // Jeœli nie jest to forma jak¹ powinienem stosowac to prosze o odpowiedz
 
 int main()
@@ -23,7 +23,7 @@ int main()
 	printf("Flag \"+\" prints character of the number before it (ex. 10 is printed as +10)\n");
 	printf("Flag \"-\" even out printed text to the left side\n\n");
 
-	printf("End of the Exercise 12.\n\n");
+	printf("End of the Exercise 12.\n\n\n");
 
 
 	// Zad 9
@@ -37,7 +37,7 @@ int main()
 	printf("Flag \"0\" fills all the gaps with 0 (works like that for %%d and some of the other formats)\n");
 	printf("Flag \" \" gives extra space for negative numbers\n\n");
 
-	printf("End of the Exercise 9.\n\n");
+	printf("End of the Exercise 9.\n\n\n");
 
 
 	// Zad 10
@@ -46,14 +46,14 @@ int main()
 	// I put each of the character in one line until I needed to use special character
 
 	// If all of this was put into one printf it would look like this:
-	//printf("%s%s%s%s", "x:\t", "f(x):\n", "3\t", "5\n");
+	//printf("%s%s%s%s", "x:\t", "f(x):\n", "3\t", "5\n\n");
 
 	putchar('x'); putchar(':'); putchar('\t'); 
 	putchar('f'); putchar('('); putchar('x'); putchar(')'); putchar(':'); putchar('\n');
 	putchar('3'); putchar('\t');
-	putchar('5'); putchar('\n');
+	putchar('5'); putchar('\n'); putchar('\n');
 
-	printf("End of the Exercise 10.\n\n");
+	printf("End of the Exercise 10.\n\n\n");
 	
 
 
@@ -70,7 +70,7 @@ int main()
 	printf("%lg\t%s\n\n", -5/*.f*/, "%lg");		//
 
 	//printf("%s\t%s\n", -5, "%%s");			// Gives an error (-5 should be in " ")
-	printf("End of the Exercise 11.\n\n");
+	printf("End of the Exercise 11.\n\n\n");
 
 
 	// Zad 12
@@ -88,7 +88,7 @@ int main()
 
 	//printf("%s\t%s\n", -5.0, "%%s");			// Gives an error (-5.0 should be in " ")
 
-	printf("End of the Exercise 12.\n\n");
+	printf("End of the Exercise 12.\n\n\n");
 
 
 	// Zad 13
@@ -118,18 +118,17 @@ int main()
 	// 4.
 	// I had to use cast to make printf print proper values with integer formating
 	printf("Integer and floating point values (with format %%d)\n");
-	printf("I used (int) cast to print proper values\n");
-	printf("2 + 3.0 = %d\n", (int)(2 + 3.0));
-	printf("2 - 3.0 = %d\n", (int)(2 - 3.0));
-	printf("2 * 3.0 = %d\n", (int)(2 * 3.0));
-	printf("2 / 3.0 = %d\n\n", (int)(2 / 3.0));
+	printf("2 + 3.0 = %d\n", /*(int)*/(2 + 3.0));			// All of them print wrong answers
+	printf("2 - 3.0 = %d\n", /*(int)*/(2 - 3.0));			// That's because format for floating point values should be %f or %g
+	printf("2 * 3.0 = %d\n", /*(int)*/(2 * 3.0));			// The (2 + 3.0) changes to the floating point value and cannot be printed as %d
+	printf("2 / 3.0 = %d\n\n", /*(int)*/(2 / 3.0));			// To get the correct answer the value requires to be casted to (int)
 
-	printf("End of the Exercise 13.\n\n");
+	printf("End of the Exercise 13.\n\n\n");
 
 
-	//// Zad 14
+	// Zad 14
 	printf("Exercise 14\n\n");
-
+	printf("Cale rozwiazanie jest w komentarzu\n\n");
 	// Ok - Compiles, Nope - Error
 
 	/*printf("%s\n", "ala");		// Ok - "ala" is a string which is fine for %s format
@@ -140,7 +139,7 @@ int main()
 	printf("%s\n", '5');			// Nope - although '5' is ok the formating should be %c
 	printf("%s\n", 5);*/			// Nope - 5 is written as an integer and formating is for strings
 
-	printf("End of the Exercise 14.\n\n");
+	printf("End of the Exercise 14.\n\n\n");
 
 
 	// Zad 15
@@ -156,7 +155,7 @@ int main()
 		\a - makes a beep sound? (can't really tell)
 		\\, \?, \",\' - places \, ?, ", ' in the place of the sequence 		
 	*/
-	printf("\nEnd of the Exercise 15.\n\n");
+	printf("\nEnd of the Exercise 15.\n\n\n");
 
 
 	// Zad 16
@@ -171,7 +170,7 @@ int main()
 
 	printf("%s%s", "Koniec.", "\n\n");	
 	
-	printf("End of the Exercise 16.\n\n");
+	printf("End of the Exercise 16.\n\n\n");
 
 	return 0;
 }

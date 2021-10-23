@@ -25,14 +25,13 @@ int GetIntNumber()
 }
 
 
+
 int main()
 {
 	printf("Labolatorium nr 3\n");
 	printf("Zadania 17-24\n\n");
 	printf("Autor: Karol Warda\n\n");
-
-	length();
-
+	
 	// Zad 17
 
 	printf("Exercise 17\n\n");
@@ -45,7 +44,6 @@ int main()
 	printf("Please enter an integer number: ");
 	scanf_s("%d", &num);
 	printf("The number value is equal to: %d\n", num);
-
 	while (getchar() != '\n');	// To clear out the buffer
 
 	/*
@@ -71,13 +69,12 @@ int main()
 	printf("Autor: Karol Warda\n");
 	printf("This program prints float number you are going to type.\n\n");
 
+
 	float f_num = {0.f};
 	printf("Please write a floating point number: ");
 	scanf_s("%f", &f_num);
 	printf("The number is equal to %f\n", f_num);
-
 	while (getchar() != '\n');	// To clear out the buffer
-
 
 	/*
 		if scanf_s is set to get only float type variables it will only work properly for that type
@@ -124,7 +121,7 @@ int main()
 		So lets say that variable which will get result from scanf_s are: int num01, int num02 then:
 
 		 1. User types first variable as char or char[] type and second one correctly -
-			then first number print will give random number and second also
+			then first and second number print will give random number
 			because the first given value to scanf_s will give the rest of the first answer to the buffer
 			which will mess up the second variable
 
@@ -135,6 +132,8 @@ int main()
 	*/
 
 	printf("End of the exercise 19.\n\n");
+
+	// Zad 20
 
 
 
