@@ -2,8 +2,8 @@
 #include <math.h>
 #include <string.h>
 
-// Wiêkszoœæ zrobionych zadañ pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsze
-// Jeœli nie jest to forma jak¹ powinienem stosowac to prosze o odpowiedz
+// Wiekszosc zrobionych zadan pisalem po angielsku, poniewaÂ¿ jest to dla mnie wygodniejsze
+// JeÅ“li nie jest to forma jaka powinienem stosowac to prosze o odpowiedz
 
 int main()
 {
