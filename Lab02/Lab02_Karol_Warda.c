@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-// Wiekszosc zrobionych zadan pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsze
+// Wiekszosc zrobionych zadan pisalem po angielsku, poniewaz jest to dla mnie wygodniejsze
 // Jesli nie jest to forma jaka powinienem stosowac to prosze o odpowiedz
 
 
