@@ -2,6 +2,9 @@
 #include <math.h>
 #include <string.h>
 
+// Wiêkszoœæ zrobionych zadañ pisalem po angielsku, poniewa¿ jest to dla mnie wygodniejsze
+// Jeœli nie jest to forma jak¹ powinienem stosowac to prosze o odpowiedz
+
 int main()
 {
 	printf("Labolatorium nr 2\n");
