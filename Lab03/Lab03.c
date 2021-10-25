@@ -22,22 +22,6 @@ int GetIntNumber(char* text, char* format)
 	}
 }
 
-int ToBase10(int num, int type)
-{
-	int result = 0;
-	int multi = 1;
-	while (num > 0) {
-		int least = num % 10;
-		result += least * multi;
-		multi *= type;
-		num /= 10;
-
-	}
-
-	return result;
-}
-
-
 
 int main()
 {
