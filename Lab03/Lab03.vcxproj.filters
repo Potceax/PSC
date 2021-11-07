@@ -18,8 +18,5 @@
     <ClCompile Include="Lab03_Karol_Warda.c">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Lab03.c">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
