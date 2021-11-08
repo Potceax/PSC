@@ -1,2 +1,2 @@
 # This is a repository for the Lab project
-# All new files should be added to "changes" branch
+If you want to help with tihs ongoing project feel free to add request on "changes" branch
