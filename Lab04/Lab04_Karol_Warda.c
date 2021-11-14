@@ -16,6 +16,7 @@ typedef struct
 
 }Point;
 
+
 char ToSmaller(char c) 
 {
 	if (c <= 'Z' && c >= 'A')
@@ -372,7 +373,50 @@ void Zad32()
 	printf("Po x=x/(x+1); wart. x jest: %d\n", x);
 	x -= 1;
 	printf("Po x--; wart. x jest: %d\n", x);
-	printf("\n\nKoniec programu. \n");
+	printf("\n\nKoniec programu. \n\n\n");
+}
+
+void Zad33()
+{
+	printf("Program which loads values to the array and looks how many of them are equal\n");
+	printf("Autor: Karol Warda\n\n");
+
+	int x = { 0 };
+	int y[5];
+
+	//y[0] = (x++) + 7; 
+	y[0] = x + 7;
+	x += 1;				/*1*/
+
+	//y[1] = (++x) + 7; 
+	x += 1;
+	y[1] = x + 7;		/*2*/
+
+	//y[2] = 7 + (x++); 
+	y[2] = 7 + x;
+	x += 1;				/*3*/
+
+	//y[3] = 7 + (++x);
+	x += 1;
+	y[3] = 7 + x;		/*4*/
+
+	//y[4] = 7 + (x + 1); 
+	y[4] = 7 + (x + 1);	/*5*/
+
+
+	int length = { 5 };
+	int equal = { 0 };
+	for (int i = 0; i < length - 1; i++) {
+		int current = y[i];
+		for (int j = i + 1; j < length; j++) {
+			int next = y[j];
+			if (current == next)
+				++equal;
+		}
+	}
+	printf("There are %d pairs.\n\n", equal);
+
+	printf("Koniec Programu\n\n\n");
 }
 
 int main()
@@ -389,6 +433,7 @@ int main()
 	Zad30();
 	Zad31();
 	Zad32();
-
+	Zad33();
+	
 	return 0;
 }
