@@ -383,9 +383,12 @@ int main()
 	const double initRad = 1.0;
 	Zad26(initPoint, initRad);
 	Zad27(initPoint, initRad);
+
 	Zad28();
 	Zad29();
 	Zad30();
 	Zad31();
 	Zad32();
+
+	return 0;
 }
