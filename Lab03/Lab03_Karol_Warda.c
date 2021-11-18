@@ -11,7 +11,7 @@ int GetInupt(char* text, char* format)
 		bool isCorrect = my_true;
 
 		printf("%s", text);
-		if (!scanf_s(format, &num) /*&& getchar() != '\n'*/) {		// Dont see a difference with code in comment
+		if (!scanf_s(format, &num) || getchar() != '\n') {		// Dont see a difference with code in comment
 			printf("Error - Passed value is not an int type\n");
 			isCorrect = !isCorrect;
 		}
