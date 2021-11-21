@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
+const char* g_author = "Karol Warda";		// Your Name
+
 int cube(int base) { return base * base * base; }
 
 int main()
 {
 	printf("Labolatorium nr 1\n");
 	printf("Zadania 1-7\n\n");
-	printf("Autor: Karol Warda\n\n");
+	printf("Autor: %s\n\n", g_author);
 
 	// Zad 1
 
@@ -101,7 +103,6 @@ int main()
 
 	printf("Koniec Programu\n\n");
 	
-	// something is not right 
-	// yea totaly
+
 	return 0;
 }

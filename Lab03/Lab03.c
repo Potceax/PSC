@@ -20,6 +20,8 @@ int GetInupt(char* text, char* format)
 		if(isCorrect)
 			return num;
 	}
+
+
 }
 
 

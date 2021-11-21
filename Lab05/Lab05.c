@@ -1,26 +1,32 @@
 #include <stdio.h>
 #include <math.h>
-#define LENGTH 3
 
 typedef enum {my_false = 0, my_true = !my_false} bool;
 
-char GetCharacter(char* text)
+typedef struct
+{
+	double x;
+	double y;
+} Point;
+
+
+// The function pointer is an overkill but I wanted to try it out
+char GetCharacter(char* text, bool (*condition)(char c))
 {
 	char c;
 	while (my_true) {
-		bool isCorrect = my_true;
-
 		printf("%s", text);
-		if (!scanf_s("%c", &c) /*&& getchar() != '\n'*/) {
-			printf("Error - Passed value is not an int type\n");
-			isCorrect = !isCorrect;
-		}
+		c = getchar();
 		while (getchar() != '\n');		// to clear out the buffer
 
-		if (isCorrect)
+		if (condition(c))		// checks condition inside a function which was passed by argument
 			return c;
+
+		printf("Error - %c is a wrong character\n", c);
 	}
 }
+
+bool IsMathChar(char c) { return (c == '+' || c == '-' || c == '*' || c == '/'); }
 
 // Format SHOULD ONLY BE for base types (hex, dec, octal, bin)
 int GetIntNumber(char* text, char* format)
@@ -109,7 +115,8 @@ int div(int x, int y)
 	return x / y;
 }
 
-int PrintResult(int x, int y, char c)
+// Prints and returns value of chosen equasion
+int PrintOperationResult(int x, int y, char c)
 {
 	switch (c) {
 	case '+':
@@ -122,11 +129,55 @@ int PrintResult(int x, int y, char c)
 		printf("The result of %d * %d is equal to% d\n\n", x, y, multi(x,y));
 		return multi(x, y);
 	case '/':
-		printf("The result of %d / %d is equal to% d\n\n", x, y, div(x,y));
-		return div(x, y);
-	default:
+		if (y == 0) {
+			printf("Error You cannot divide by 0\n\n");
+			return -1;
+		}
+		else
+		{
+			printf("The result of %d / %d is equal to% d\n\n", x, y, div(x, y));
+			return div(x, y);
+		}
+	default:										// With function pointer checking condition default is not needed
 		printf("Error - wrong character\n\n");
 		return -1;
+	}
+}
+
+
+double FirstDistanceAlgorithm(const Point point)
+{
+	return sqrt(pow(point.x, 2) + pow(point.y, 2));
+}
+
+double SecondDistanceAlgorithm(const Point point)
+{
+	if (point.x == 0.0)
+		return fabs(point.y);
+  	else if ((fabs(point.x) >= fabs(point.y)) && point.x != 0.0)
+		return fabs(point.x) * sqrt(1 + pow(point.y / point.x, 2));
+	else
+		return fabs(point.y) * sqrt(1 + pow(point.x / point.y, 2));
+	
+}
+
+// determine if answers for algorithms are equal
+void PrintAnswerForDistanceAlgorithms(const Point point)
+{
+	double distanceOfFirstAlgorithm = FirstDistanceAlgorithm(point);
+	double distanceOfSecondAlgorithm = SecondDistanceAlgorithm(point);
+
+	if (distanceOfFirstAlgorithm == distanceOfSecondAlgorithm) {
+		printf("OBA ALGORYTMY DAJA TEN SAM WYNIK.\n");
+		printf("Odleglosc punktu (%.lf,% .lf) od (0, 0) wynosi %.17g\n\n", point.x, point.y, distanceOfFirstAlgorithm);
+	}
+	else {
+		printf("ALGORYTMY DAJA ROZNE WYNIKI.\n");
+		printf("Odleglosc punktu (%.lf,% .lf) od (0, 0) wynosi:\n", point.x, point.y);
+		printf("-wg \"klasycznego\" algorytmu %.17g\n", distanceOfFirstAlgorithm);
+		printf("-wg \"specjalnego\" algorytmu %0.17g\n\n", distanceOfSecondAlgorithm);
+
+		printf("Wartosc bezwzgledna roznicy miedzy wynikami:\n%.17g\n\n", fabs(distanceOfFirstAlgorithm - distanceOfSecondAlgorithm));
 	}
 }
 
@@ -197,9 +248,11 @@ void Zad38()
 
 	int x = GetIntNumber("x integer value: ", "%d");
 	int y = GetIntNumber("y integer value: ", "%d");
-	char c = GetCharacter("Choose one: (+, -, *, /): ");
+	
+	bool(*statment) = &IsMathChar;			// function pointer is needed for GetCharacter()
+	char c = GetCharacter("Choose one: (+, -, *, /): ", statment);
 
-	PrintResult(x, y, c);
+	PrintOperationResult(x, y, c);
 
 	printf("Koniec Programu\n\n\n");
 }
@@ -216,13 +269,33 @@ void Zad39()
 	printf("Koniec Programu\n\n\n");
 }
 
+void Zad40()
+{
+	printf("Program which takes input x nad y from the user and determine distance from two algorithms\n");
+	printf("Autor: Karol Warda\n\n");
+
+	Point input;
+
+	printf("Please enter\n");
+	input.x = GetDoubleNumber("X point value: ");
+	input.y = GetDoubleNumber("Y point value: ");
+
+	PrintAnswerForDistanceAlgorithms(input);
+
+
+}
+
 int main()
 {
-	/*Zad34();*/
-	/*Zad35();*/
-	/*Zad36();*/
-	/*Zad37();*/
-	/*Zad38();*/
-	Zad39();
+	// Lab05
+	// Zad 34 - 35
+	// Autor: Karol Warda
 
+	Zad34();
+	Zad35();
+	Zad36();
+	Zad37();
+	Zad38();
+	Zad39();
+	Zad40();
 }
