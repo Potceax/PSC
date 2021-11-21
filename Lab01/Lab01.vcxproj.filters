@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Lab01_Karol_Warda.c">
+    <ClCompile Include="Lab01.c">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
