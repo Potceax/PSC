@@ -200,7 +200,7 @@ fieldCalcType GetFieldCalcType(char c)
 void SideSideSideTriangleField()
 {
 	Triangle tr = CreateTriangle();
-	double s = (tr.a, tr.b, tr.c) / 2.0;
+	double s = (tr.a + tr.b + tr.c) / 2.0;
 	double field = sqrt(s * (s - tr.a) * (s - tr.b) * (s - tr.c));
 	
 	printf("The triangle field is equal to %.3lf\n\n", field);
@@ -376,6 +376,7 @@ void Zad45()
 		else
 			break;
 	}
+	putchar('\n');
 
 	if (isdigit(input) || isalpha(input)) {
 		printf("Input %d is printable character\n", input);
@@ -495,7 +496,7 @@ void Zad47()
 
 int main()
 {
-	Zad41();
+	//Zad41();
 	Zad42();
 	Zad43();
 	Zad44();
