@@ -1,18 +1,40 @@
 #include <stdio.h>
-#include <limits.h>
 
 typedef enum {my_false = 0, my_true = !my_false} bool;
 const char* g_author = "Karol Warda";
 
-
-int Power(int base, int pow)
+int GetInteger(char* text)
 {
-	int result = 1;
-	for (int i = 0; i < pow; ++i)
-		result *= base;
+	int result = 0;
+	while (my_true) {
 
-	return result;
+		printf(text);
+		if (!scanf_s("%d", &result) || getchar() != '\n') {
+			printf("Error - wrong format or the number wasn't integer\n\n");
+			while (getchar() != '\n');			// Buffer cleaning if incorrect (no need to clean when result is correct)
+		}
+		else
+			return result;
+	}
 }
+
+char GetCharacterT(char* text)
+{
+	char result;
+	while (my_true) {
+		printf(text);
+		printf("Your input: ");
+		result = getchar();												// Getting input from user
+
+		if (result != 't' || getchar() != '\n') {						// Condition and extra character check
+			printf("Error - Wrong character or Too many of them\n\n");
+			while (getchar() != '\n');									// cleaning extra characters in buffer
+		}
+		else
+			return result;
+	}
+}
+
 
 long double RecPower(int base, int pow)
 {
@@ -34,7 +56,7 @@ int Factorial(int n)
 long double f(long double numerator, int n)
 {
 	if (n <= 1)
-		return numerator / ((long double)n + 1);		// initial f(n) value for n = 1
+		return numerator / ((long double)n + 1);							// initial f(n) value for n = 1
 	else
 		return f(numerator, n - 1) * numerator / ((long double)n + 1);		// k/(n + 1) * f(n - 1)
 }
@@ -72,14 +94,15 @@ void Zad49()
 	printf("Author:% s\n\n", g_author);
 
 	const int maxRange = 20;
-	
-	for (int i = 1; i <= 20; i++) {
+	int i = 1;
+	while(i <= 20) {
 		if (Factorial(i) < 0) {
 			printf("factorial of and higher %d cannot be hold in int type variables\n\n", i);
 			break;
 		}
 
 		printf("!%d = %d\n", i, Factorial(i));
+		++i;
 	}
 	putchar('\n');
 
@@ -94,7 +117,7 @@ void Zad50()
 	const int minRange = 1;
 	const int maxRange = 200;
 	const long double numerator = 3.0;
-	for (int n = minRange; n < maxRange; n++) {
+	for (int n = minRange; n <= maxRange; n++) {
 		long double funct = f(numerator, n);
 
 		if (funct < 0) {
@@ -102,7 +125,7 @@ void Zad50()
 			break;
 		}
 
-		printf("f(%d) = %lf\n", n, funct);
+		printf("f(%d) = %.16lf\n", n, funct);
 	}
 	putchar('\n');
 
@@ -124,7 +147,6 @@ void Zad51()
 		if (funct < 1.0)
 			break;
 
-
 		++n;
 	}
 	printf("Minimal n which gives < 1 for f(n) is equal to: %d\n\n", n);
@@ -134,27 +156,78 @@ void Zad51()
 
 void Zad52()
 {
-	// do it with the photo example 
-
+	// No functions for this Exercise - wanted to process how getchar() is working here
 
 	printf("Program which takes string input and deletes all spaces in between words\n");
 	printf("Author:% s\n\n", g_author);
 
-	char* text = "";
-	printf("Please enter a text string: ");
+	char current = '0';				// Character to override with getchar()
+	char previous = '0';			// Character to override with char current
 
 
+	// Comunicating with user, preperation for setting/getting input
+	printf("Please enter a string: ");
+	current = getchar();
+	printf("End result: ");
 
 
+	while (my_true) { 
+		if (current == '\n')		// Program ends when ENTER was current char
+			break;
+
+		// Checking for SPACE
+		if (current != ' ') {		
+			putchar(current);
+		}
+		else {
+			if (previous == ' ')
+				putchar(current);
+		}
+
+		// overriding characters
+		previous = current;
+		current = getchar();
+	}
+	printf("\n\n");
+	printf("Koniec Programu\n\n\n");
 }
+
+void Zad53()
+{
+	printf("Program which takes user integer input and prints the result\n");
+	printf("Author:% s\n\n", g_author);
+
+	int num = GetInteger("Please enter an integer number: ");
+
+	printf("The number is equal to: %d\n\n", num);
+	printf("Koniec Programu\n\n\n");
+}
+
+void Zad54()
+{
+	printf("Program which takes user char input and prints the result only if character is \'t\'.\n");
+	printf("Author:% s\n\n", g_author);
+
+	char c = GetCharacterT("Please enter the \'t\' character: ");
+
+	printf("The character is equal to: %c\n\n", c);
+	printf("Koniec Programu\n\n\n");
+}
+
 
 int main()
 {
+	// Labolatorium 7
+	// Zad 48 - 54
+	// Autor Karol Warda
+
 	Zad48();
 	Zad49();
 	Zad50();
 	Zad51();
-	//Zad52();
+	Zad52();
+	Zad53();
+	Zad54();
 
 	return 0;
 }
