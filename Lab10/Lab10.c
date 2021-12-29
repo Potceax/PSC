@@ -32,8 +32,10 @@ void EndInfo() { printf("Koniec Programu\n\n\n"); }
 void PrintStarsInRow(int rows, int columns)
 {
 	for (int i = 0; i < rows; ++i) {
-		for(int j = 0; j < columns; ++j)
-			putchar('*');
+		for (int j = 0; j < columns; ++j) {
+			putchar('*');						// row filling
+		}
+		putchar('\n');							// end of the row
 	}
 }
 
@@ -42,8 +44,8 @@ void Zad67()
 {
 	StartInfo("Program which prints number of stars inputed by user\n\n");
 
-	const int columns = 1;
-	int rows = GetInteger("How many stars you want?: ", &isPositive);
+	const int rows = 1;														// how many * you want to go under v
+	int columns = GetInteger("How many stars you want?: ", &isPositive);	// how many * you want to go right >
 
 	PrintStarsInRow(rows, columns); printf("\n\n");
 	EndInfo();
@@ -53,12 +55,11 @@ void Zad68()
 {
 	StartInfo("Program which prints n by n box of starts, where n is user input\n");
 
-	const int rows = 5;
-	int columns = GetInteger("How many starts in row you want?: ", &isPositive);
+	const int columns = 5;
+	int rows = GetInteger("How many starts in row you want?: ", &isPositive);
 
 	PrintStarsInRow(rows, columns); printf("\n\n");
-	EndInfo();
-	
+	EndInfo();	
 }
 
 int main()
@@ -66,5 +67,6 @@ int main()
 	// Laboratorium 10
 	// Zad 67 - 74
 	Zad67();
+	Zad68();
 
 }
