@@ -241,5 +241,5 @@ int main()
 	Zad83();
 	Zad84();
 	Zad85();
-	return 0;
+	return 0;			// Check
 }
