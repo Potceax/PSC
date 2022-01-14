@@ -222,14 +222,14 @@ void Zad84()
 	StartInfo("Program which prints [size] value of rows of Pascal triangle using binomial coefficient formula\n");
 	printf("Size Value %d\n\n", size);
 
-	PrintPascalTriangle_CNB_Method(size);
+	PrintPascalTriangle_BC_Method(size);
 
 	EndInfo();
 }
 
 void Zad85()
 {
-	StartInfo("Program which prints 35 rows of Pascal triangle using neighbour formula\n");
+	StartInfo("Program which prints 25 rows of Pascal triangle using neighbour formula\n");
 	PrintPascalTriangle_NB_method(25);
 
 	EndInfo();
@@ -241,5 +241,5 @@ int main()
 	Zad83();
 	Zad84();
 	Zad85();
-	//
+	return 0;
 }
