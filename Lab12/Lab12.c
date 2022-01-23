@@ -92,16 +92,16 @@ int GetPolynomialValue(int* values, int length, int x)
 }
 
 
-
+// Finds the smallest divider for a and b
 int NWD(int a, int b)
 {
 	if (a == 0)
-		return b;
+		return b;			// if first argument is equal 0 retun the smallest divider (b)
 
 	if (b > a)
 		NWD(b, a);
 	else
-		NWD(a % b, b);
+		NWD(a % b, b);		// every time it gives a%b until first argument is equal 0
 }
 
 
@@ -111,30 +111,22 @@ int BC(int n, int k)
 	int div = 1;
 	const int size = n - k;
 
+	//					 n - k
+	// made by using	 PRODUCT: (k + i) / i formula
+	//					 i = 1
+
 	for (int i = 1; i <= size; ++i) {
 		multi *= k + i;
 		div *= i;
 
-		int nwd = NWD(multi, div);
-		if (nwd > 1) {
-			multi /= nwd;
-			div /= nwd;
+		int nwd = NWD(multi, div);			// Every loop it checks for smallest divider
+		if (nwd > 1) {						// if there is such a divider 
+			multi /= nwd;					// it will divide multi and div variables
+			div /= nwd;						//
 		}
 	}
 
-	return multi / div;
-}
-
-// Slow as fuck but works
-int Multi_CNB(size_t n, size_t k)
-{
-	if (n <= k || k == 1 || n == 1)
-		return 1;
-	else {
-		Multi_CNB(n - 1, k) + Multi_CNB(n - 1, k - 1);
-	}
-	
-	return BC(n, k);
+	return multi / div;						// returns the full product of the equation
 }
 
 // Binomial coefficient method (BC)
@@ -218,7 +210,7 @@ void Zad83()
 
 void Zad84()
 {
-	const int size = 16;
+	const int size = 25;
 	StartInfo("Program which prints [size] value of rows of Pascal triangle using binomial coefficient formula\n");
 	printf("Size Value %d\n\n", size);
 
@@ -241,5 +233,6 @@ int main()
 	Zad83();
 	Zad84();
 	Zad85();
-	return 0;			// Check
+
+	return 0;
 }
