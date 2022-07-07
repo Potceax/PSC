@@ -44,7 +44,6 @@ void FillArrayWithInput(int* tab, int length, char* text, bool(*condition)(int n
 
 void FillArrayWithRandom(int* tab, int length)
 {
-
 	for (int i = 0; i < length; i++) {
 		tab[i] = rand();
 	}
